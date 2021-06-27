@@ -23,7 +23,8 @@
 	<!-- 인터셉터 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/boardList.do"/>
+			<mapping path="/userInfo.do"/>
+			<mapping path="/leave.do"/>
 			<exclude-mapping path="/init/*.do"/>
 			<beans:bean class="com.woon.comma.interceptor.Interceptor"></beans:bean>
 		</interceptor>

@@ -19,8 +19,7 @@
 	<div class="container">
 		<div class="message">
 			<h1>ERROR</h1>
-			<h3>오류가 발생했습니다.</h3>
-			<h4>관리자에게 문의하세요.</h4>
+			<h3>해당 페이지가 존재하지 않습니다.</h3>
 			<h4>
 				<a href="./">메인으로 돌아가기</a>
 			</h4>

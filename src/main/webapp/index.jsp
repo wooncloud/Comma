@@ -142,7 +142,7 @@
 				</div>
 				<div class="card-footer">
 					<small class="text-muted">
-						<a href="./CommaCtrl.do?command=news" class="btn btn-primary btn-sm">콤마 뉴스 확인하기</a>
+						<a href="./news.do" class="btn btn-primary btn-sm">콤마 뉴스 확인하기</a>
 					</small>
 				</div>
 			</div>
@@ -175,7 +175,7 @@
 				</div>
 				<div class="card-footer">
 					<small class="text-muted">
-						<a href="./CommaCtrl.do?command=customer" class="btn btn-primary btn-sm">고객센터 바로 가기</a>
+						<a href="./help.do" class="btn btn-primary btn-sm">고객센터 바로 가기</a>
 					</small>
 				</div>
 			</div>

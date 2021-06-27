@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8;");
@@ -35,26 +36,26 @@
             	<c:choose>
             		<c:when test="${User == null}">
 	            		<li class="nav-item">
-		                    <a href="Login.do?command=login" class="nav-link px-2">로그인</a>
+		                    <a href="./loginForm.do" class="nav-link px-2">로그인</a>
 						</li>
 		                <li class="nav-item">
-		                    <a href="Regist.do?command=regist" class="nav-link px-2">회원가입</a>
+		                    <a href="./registRead.do" class="nav-link px-2">회원가입</a>
 		                </li>
             		</c:when>
             		<c:otherwise>
             			<li class="nav-item">
-		                    <a href="Login.do?command=logout" class="nav-link px-2">로그아웃</a>
+		                    <a href="./logout.do" class="nav-link px-2">로그아웃</a>
 		                </li>
 		                <li class="nav-item">
-		                    <a href="User.do?command=myInfo" class="nav-link px-2">내 정보</a>
+		                    <a href="./userInfo.do" class="nav-link px-2">내 정보</a>
 		                </li>
             		</c:otherwise>
             	</c:choose>
                 <li class="nav-item">
-                    <a href="CommaCtrl.do?command=map" class="nav-link px-2">매장위치</a>
+                    <a href="./map.do" class="nav-link px-2">매장위치</a>
                 </li>
                 <li class="nav-item">
-                    <a href="CommaCtrl.do?command=customer" class="nav-link px-2">고객센터</a>
+                    <a href="./help.do" class="nav-link px-2">고객센터</a>
                 </li>
             </ul>
         </div>
@@ -68,19 +69,19 @@
             <div class="col-12 col-lg-8 mb-3 mb-lg-0 d-flex align-items-center">
                 <ul class="d-flex align-items-center nav nav-justified w-100">
                     <li class="nav-item">
-                        <a href="CommaCtrl.do?command=intro" class="nav-link">콤마 소개</a>
+                        <a href="./intro.do" class="nav-link">콤마 소개</a>
                     </li>
                     <li class="nav-item">
-                        <a href="CommaCtrl.do?command=menu" class="nav-link">콤마 메뉴</a>
+                        <a href="./menu.do" class="nav-link">콤마 메뉴</a>
                     </li>
                     <li class="nav-item">
-                        <a href="CommaCtrl.do?command=news" class="nav-link">콤마 뉴스</a>
+                        <a href="./news.do" class="nav-link">콤마 뉴스</a>
                     </li>
                     <li class="nav-item">
-                        <a href="CommaCtrl.do?command=promotion" class="nav-link">프로모션</a>
+                        <a href="./promotion.do" class="nav-link">프로모션</a>
                     </li>
                     <li class="nav-item">
-                        <a href="CustomerBoard.do?command=customerBoard" class="nav-link">고객 게시판</a>
+                        <a href="./board.do" class="nav-link">고객 게시판</a>
                     </li>
                 </ul>
             </div>
@@ -106,41 +107,41 @@
         <ul class="nav nav-pills flex-column">
         	<!-- TODO : Session이 없으면 로그인, 회원가입을 표시 -->
             <li>
-                <a href="Login.do?command=login" class="nav-link"> 로그인 </a>
+                <a href="./loginForm.do" class="nav-link"> 로그인 </a>
             </li>
             <li>
-                <a href="Regist.do?command=regist" class="nav-link"> 회원가입 </a>
+                <a href="./registRead.do" class="nav-link"> 회원가입 </a>
             </li>
             <!-- TODO : Session이 있으면 로그아웃과 내정보를 표시 -->
             <li>
-                <a href="Login.do?command=logout" class="nav-link"> 로그아웃 </a>
+                <a href="./logout.do" class="nav-link"> 로그아웃 </a>
             </li>
             <li>
-                <a href="User.do?command=myInfo" class="nav-link"> 내 정보 </a>
+                <a href="./userInfo.do" class="nav-link"> 내 정보 </a>
             </li>
             <li>
-                <a href="CommaCtrl.do?command=map" class="nav-link"> 매장위치 </a>
+                <a href="./map.do" class="nav-link"> 매장위치 </a>
             </li>
             <li>
-                <a href="CommaCtrl.do?command=customer" class="nav-link"> 고객센터 </a>
+                <a href="./help.do" class="nav-link"> 고객센터 </a>
             </li>
         </ul>
         <hr>
         <ul class="nav nav-pills flex-column">
             <li>
-                <a href="CommaCtrl.do?command=intro" class="nav-link"> 소개 </a>
+                <a href="./intro.do" class="nav-link"> 소개 </a>
             </li>
             <li>
-                <a href="CommaCtrl.do?command=menu" class="nav-link"> 메뉴 </a>
+                <a href="./menu.do" class="nav-link"> 메뉴 </a>
             </li>
             <li>
-                <a href="CommaCtrl.do?command=news" class="nav-link"> 뉴스 </a>
+                <a href="./news.do" class="nav-link"> 뉴스 </a>
             </li>
             <li>
-                <a href="CommaCtrl.do?command=promotion" class="nav-link"> 프로모션 </a>
+                <a href="./promotion.do" class="nav-link"> 프로모션 </a>
             </li>
             <li>
-                <a href="CustomerBoard.do?command=customerBoard" class="nav-link"> 고객게시판 </a>
+                <a href="./board.do" class="nav-link"> 고객게시판 </a>
             </li>
         </ul>
     </div>

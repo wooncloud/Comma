@@ -23,7 +23,6 @@ public class UserVo implements Serializable {
 
 	public UserVo(String id, String password, String name, String address, String phone, String recv_phone,
 			String email, String recv_email, String birth) {
-		super();
 		this.id = id;
 		this.password = password;
 		this.name = name;

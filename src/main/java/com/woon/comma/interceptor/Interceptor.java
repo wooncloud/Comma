@@ -18,7 +18,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 
 		// user session이 없으면 로그아웃 시킴
 		try {
-			if (req.getSession().getAttribute("user") == null) {
+			if (req.getSession().getAttribute("User") == null) {
 				resp.sendRedirect("./logout.do");
 				return false;
 			}
