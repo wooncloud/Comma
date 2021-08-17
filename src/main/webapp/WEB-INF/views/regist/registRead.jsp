@@ -7,6 +7,7 @@
 
 <%@include file="/header.jsp"%>
 <link href="./css/regist_read.css" rel="stylesheet">
+<script type="text/javascript" src="./js/regist.js"></script>
 <div class="container regist-container">
 	<div class="regist-header">
 		<h1 class="fw-bold">회원가입</h1>
@@ -260,7 +261,7 @@
 			</label>
 		</div>
 		<div class="next-page">
-			<a href="./registForm.do" class="btn btn-success btn-lg" onclick="return comma.registRead.nextCheck()">다음으로 이동</a>
+			<a href="./registForm.do" class="btn btn-success btn-lg" onclick="return registRead.nextCheck()">다음으로 이동</a>
 		</div>
 	</div>
 </div>

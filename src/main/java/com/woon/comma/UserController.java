@@ -87,6 +87,31 @@ public class UserController {
 		return "regist/regist";
 	}
 
+	@RequestMapping(value = "/regist.do", method = RequestMethod.POST)
+	public void regist(UserVo param, HttpServletResponse resp) {
+		logger.info("regist : {}", param);
+
+		boolean isc = userService.signupUser(param);
+
+		String msg = null;
+		String url = null;
+		if (isc) {
+			// 회원가입 완료
+			msg = "회원가입이 완료되었습니다.\\n로그인 페이지로 이동힙니다.";
+			url = "./loginForm.do";
+		} else {
+			// 회원가입 실패
+			msg = "회원가입에 실패했습니다.\\n다시 시도해주세요.";
+			url = "./registForm.do";
+		}
+
+		try {
+			Util.PrintWriterMsg(resp, msg, url);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * 로그아웃
 	 * 
@@ -127,11 +152,14 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/leave.do", method = RequestMethod.GET)
-	public String leave() {
+	public String leave(Model model, HttpSession session) {
 		logger.info("leave");
 
-		// 계정 정보 뿌려줌
-		
+		UserVo sessionUser = (UserVo) session.getAttribute("User");
+		UserVo userVo = userService.selectUser(sessionUser.getId());
+
+		model.addAttribute("vo", userVo);
+
 		return "user/leave";
 	}
 
@@ -145,26 +173,22 @@ public class UserController {
 		if (uVo != null) {
 			boolean isc = userService.deleteUser(uVo.getId());
 
+			String msg = null;
+			String url = null;
 			if (isc) {
 				// 탈퇴 성공
-				String msg = "탈퇴가 완료 되었습니다.\\n이용해 주셔서 감사합니다.";
-				String url = "./";
-				
-				try {
-					Util.PrintWriterMsg(resp, msg, url);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				msg = "탈퇴가 완료 되었습니다.\\n이용해 주셔서 감사합니다.";
+				url = "./";
 			} else {
 				// 탈퇴 실패
-				String msg = "탈퇴에 실패 했습니다.\\n관리자에게 문의하세요.";
-				String url = "./error500.do";
-				
-				try {
-					Util.PrintWriterMsg(resp, msg, url);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				msg = "탈퇴에 실패 했습니다.\\n관리자에게 문의하세요.";
+				url = "./error500.do";
+			}
+			
+			try {
+				Util.PrintWriterMsg(resp, msg, url);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}

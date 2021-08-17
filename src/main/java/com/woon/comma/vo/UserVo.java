@@ -15,7 +15,6 @@ public class UserVo implements Serializable {
 	private String recv_email;
 	private String birth;
 	private String regdate;
-	private String auth;
 	private String delflag;
 
 	public UserVo() {
@@ -33,15 +32,14 @@ public class UserVo implements Serializable {
 		this.recv_email = recv_email;
 		this.birth = birth;
 		this.regdate = null;
-		this.auth = "U";
-		this.delflag = "N";
+		this.delflag = "false";
 	}
 
 	@Override
 	public String toString() {
 		return "UserDto [id=" + id + ", password=" + password + ", name=" + name + ", address=" + address + ", phone="
 				+ phone + ", recv_phone=" + recv_phone + ", email=" + email + ", recv_email=" + recv_email + ", barth="
-				+ birth + ", regdate=" + regdate + ", auth=" + auth + ", delflag=" + delflag + "]";
+				+ birth + ", regdate=" + regdate + ", delflag=" + delflag + "]";
 	}
 
 	public String getId() {
@@ -122,14 +120,6 @@ public class UserVo implements Serializable {
 
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
-	}
-
-	public String getAuth() {
-		return auth;
-	}
-
-	public void setAuth(String auth) {
-		this.auth = auth;
 	}
 
 	public String getDelflag() {

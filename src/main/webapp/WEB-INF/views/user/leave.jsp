@@ -46,15 +46,15 @@
 					<div class="card-text">
 						<div class="mt-3">
 							<label class="form-label">이름 : </label>
-							<input type="text" name="name" class="form-control" value="${dto.name }" readonly>
+							<input type="text" name="name" class="form-control" value="${vo.name }" readonly>
 						</div>
 						<div class="mt-3">
 							<label class="form-label">아이디 : </label>
-							<input type="text" name="id" class="form-control" value="${dto.id }" readonly>
+							<input type="text" name="id" class="form-control" value="${vo.id }" readonly>
 						</div>
 						<div class="mt-3">
 							<label class="form-label">이메일 : </label>
-							<input type="text" name="email" class="form-control" value="${dto.email }" readonly>
+							<input type="text" name="email" class="form-control" value="${vo.email }" readonly>
 						</div>
 						<div class="mt-3">
 							<label class="form-label">비밀번호 : </label>

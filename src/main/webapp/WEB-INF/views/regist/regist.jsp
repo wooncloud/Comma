@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8;");
@@ -24,8 +23,8 @@
                     <div>
                         <label for="registID" class="form-label">아이디</label>
                         <div class="id-form">
-                            <input type="text" class="form-control" name="id" id="registID" placeholder="아이디를 입력하세요." onchange="comma.regist.idChangeEvent(this)">
-                            <input type="button" value="중복검사" class="btn btn-outline-secondary" onclick="comma.regist.idDupliCheck()" required>
+                            <input type="text" class="form-control" name="id" id="registID" placeholder="아이디를 입력하세요." onchange="regist.idChangeEvent(this)">
+                            <input type="button" value="중복검사" class="btn btn-outline-secondary" onclick="regist.idDupliCheck()" required>
                         </div>
                         <label class="form-label valid-success" id="idValidLabel" style="display: none;">사용 가능한 아이디 입니다.</label>
                     </div>
@@ -41,7 +40,7 @@
                         <label for="registPhone" class="form-label">휴대폰 번호</label>
                         <input type="text" class="form-control" name="phone" id="registPhone" placeholder="휴대폰 번호를 입력하세요." required>
                         <div class="d-flex align-items-center">
-                            <input type="checkbox" name="newsPhone" id="chkNewsPhone" checked>
+                            <input type="checkbox" name="recv_phone" id="chkNewsPhone" checked>
                             <label class="light-label" for="chkNewsPhone">&nbsp;문자를 통한 이벤트 소식 수신에 동의합니다. (선택)</label>
                         </div>
                     </div>
@@ -54,7 +53,7 @@
                         </div>
                         <!-- <input type="email" class="form-control" id="registEmail" placeholder="이메일 주소를 입력하세요."> -->
                         <div class="d-flex align-items-center">
-                            <input type="checkbox" name="newsEmail" id="chkNewsEmail" checked>
+                            <input type="checkbox" name="recv_email" id="chkNewsEmail" checked>
                             <label class="light-label" for="chkNewsEmail">&nbsp;이메일를 통한 이벤트 소식 수신에 동의합니다. (선택)</label>
                         </div>
                     </div>
@@ -73,7 +72,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <input class="btn btn-success btn-lg" type="submit" value="가입하기" onclick="return comma.regist.submit()">
+                        <input class="btn btn-success btn-lg" type="submit" value="가입하기" onclick="return regist.submit()">
                     </div>
                 </form>
             </div>
